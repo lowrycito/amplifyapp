@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactMarkdown from 'react-markdown';
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API, Storage } from "aws-amplify";
@@ -112,7 +113,9 @@ const App = ({ signOut }) => {
 						<Text as="strong" fontWeight={700}>
 							{note.name}
 						</Text>
-						<Text as="span">{note.description}</Text>
+						<ReactMarkdown>
+							{note.description}
+						</ReactMarkdown>
 						{note.image && (
 							<Image
 								src={note.image}
